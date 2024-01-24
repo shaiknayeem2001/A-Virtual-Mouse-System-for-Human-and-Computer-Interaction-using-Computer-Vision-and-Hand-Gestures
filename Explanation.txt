@@ -1,0 +1,66 @@
+cv2 (OpenCV)
+mediapipe
+pyautogui
+
+cv2 for computer vision
+mediapipe for hand tracking and gesture recognition
+pyautogui for controlling the mouse and keyboard, and other relevant libraries.
+
+Enums allow you to define a set of symbolic names that represent values or constants. In this code, IntEnum is used to define an enumeration for hand gestures (e.g., Gest) and hand labels (e.g., HLabel).
+
+ctypes Module (from ctypes import cast, POINTER)
+
+The ctypes library is a foreign function interface (FFI) that provides C-compatible data types in Python. For example, it is used to cast interfaces to work with audio settings.
+
+comtypes Library (from comtypes import CLSCTX_ALL)
+
+The comtypes library is used to work with COM (Component Object Model) objects and interfaces.
+COM is a technology used in Windows for building software components. In this code, CLSCTX_ALL is
+used as a constant to specify the context for loading COM objects.
+
+
+
+
+The script defines two enumeration classes: Gest (for hand gesture recognition) and HLabel
+(for hand labels - major or minor). These are used to identify and classify gestures and hand labels.
+
+HandRecog Class: This class is designed to recognize and classify hand gestures. It tracks the hand's finger positions, calculates distances, and determines the current gesture based on finger movements and positions. It also updates the gesture over time to account for variations.
+
+Controller Class: This class handles various control functions based on the recognized gestures. It includes methods for controlling the mouse cursor, simulating mouse clicks, volume control, and other interactions. The control methods are called based on the recognized gestures.
+
+GestureController Class: This is the main class that uses the mediapipe library to detect and recognize hand gestures. It initializes two HandRecog objects for the major and minor hands, manages the webcam feed, processes hand landmarks, and applies gesture recognition logic.
+It also handles the display of the webcam feed with annotated hand landmarks.
+
+Starting GestureController: The script creates an instance of the GestureController class (gc1) and starts gesture recognition by calling the start method. This method captures the webcam feed, processes hand gestures, and controls various actions based on the recognized gestures.
+
+
+
+
+cv2: OpenCV library for computer vision tasks.
+mediapipe: A library for various computer vision tasks, including hand tracking.
+pyautogui: A library for programmatically controlling the mouse and keyboard.
+math: Standard Python math library for mathematical operations.
+enum: A module for creating enumerations.
+ctypes: A foreign function interface (FFI) library for calling functions from DLLs/shared libraries.
+comtypes: A library for handling COM objects in Python.
+pycaw: A library for controlling the Windows Audio API (Core Audio) in Python.
+MessageToDict: A function for converting a Protocol Buffer message to a Python dictionary.
+
+This class handles the recognition and tracking of hand gestures. It includes methods for updating hand results, calculating distances and angles between landmarks, and determining the current hand gesture based on finger positions and hand movements.
+
+The Controller class manages actions triggered by hand gestures. It includes methods for controlling the mouse, handling pinch gestures for volume control and scrolling, and defining actions for various hand gestures.
+
+This class orchestrates the overall gesture recognition and control process. It uses the MediaPipe library to detect hand landmarks, classifies left and right hands, and delegates control to the Controller class based on recognized gestures.
+
+
+Initializes instances of the HandRecog and Controller classes.
+Sets up the MediaPipe Hands module for hand tracking.
+Enters a loop to continuously capture video frames from the camera.
+Processes each frame to detect hand landmarks and classify left and right hands.
+Updates hand results, calculates finger states, and determines the current hand gesture.
+Invokes the Controller class to handle actions based on the recognized gestures.
+Displays the video frame with annotated hand landmarks and connections using OpenCV.
+Breaks out of the loop if the Enter key is pressed.
+Releases the camera and closes the OpenCV window when done.
+
+    
